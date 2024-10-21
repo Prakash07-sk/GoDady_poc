@@ -20,6 +20,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "types": [
+    "react",
+    "react-dom",
+    "react-virtualized"
+  ],
   "include": [
     "src"
   ]
