@@ -1,4 +1,4 @@
-import { Suspense, lazy, useCallback } from 'react';
+import { Suspense, lazy, useCallback, useId } from 'react';
 import { Card } from 'react-bootstrap';
 import { List, AutoSizer, ListRowProps } from 'react-virtualized';
 import ViewRepoData from './ViewRepoData';
@@ -9,6 +9,7 @@ interface propsData {
 export default function LazyLoadingComponent(props: propsData) {
 
     const { ListData } = props;
+    const baseId = useId();
 
 
     const ViewRepoData = lazy(() => import('./ViewRepoData'));
@@ -46,7 +47,7 @@ export default function LazyLoadingComponent(props: propsData) {
             {ListData?.map((value: any, index: number) => {
 
                 return(
-                    <Suspense key={index} fallback={<CardPlaceHolder />}>
+                    <Suspense key={`${baseId}-${index}`} fallback={<CardPlaceHolder />}>
                         <ViewRepoData value={value} />
                     </Suspense>
                 )

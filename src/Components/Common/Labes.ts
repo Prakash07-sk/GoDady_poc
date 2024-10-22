@@ -7,5 +7,8 @@ export const display_text = {
             path: APP_PATH?.repository
         },
         user: 'Admin'
+    },
+    LRepo: {
+        data_not_found: "No Data Found...."
     }
 };
