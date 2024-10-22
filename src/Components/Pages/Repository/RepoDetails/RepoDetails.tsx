@@ -1,9 +1,8 @@
-import { Alert, Card, Col, Container, Form, FormControl, Row } from "react-bootstrap";
+import { Alert, Card, Col, Container, Form, FormControl, Nav, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { RepoData } from "../../../../Redux/Store/Repository/Repository.selector";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { useDebounce } from "use-debounce";
 import LazyLoadingComponent from "./LazyLoadingData";
 import { display_text } from "../../../Common/Labes";
 
@@ -11,7 +10,7 @@ import { display_text } from "../../../Common/Labes";
 export default function RepoDetails() {
     const [data, setData] = useState<Array<any>>([]);
     const RepoDetails = useSelector(RepoData);
-    const {LRepo: {data_not_found}} = display_text;
+    const { LRepo: { data_not_found } } = display_text;
 
     const methods = useForm();
 
@@ -27,11 +26,12 @@ export default function RepoDetails() {
     }
     return (
         <Container className="mt-3">
-            <Form className="d-flex w-50" onSubmit={() => console.log('')} style={{ maxWidth: '100%' }}>
+           
+            <Form className="d-flex w-50 mb-3" onSubmit={() => console.log('')} style={{ maxWidth: '100%' }}>
                 <Controller
                     name="searcn"
                     control={methods?.control}
-                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                    render={({ field: { onChange, value, ref } }) => (
                         <FormControl
                             type="search"
                             placeholder="Search..."
@@ -48,7 +48,7 @@ export default function RepoDetails() {
             </Form>
             {data?.length > 0 ? <LazyLoadingComponent ListData={data} /> :
                 (
-                    <Alert variant = {'light'} className="mt-3">
+                    <Alert variant={'light'} className="mt-3">
                         {data_not_found}
                     </Alert>
                 )}

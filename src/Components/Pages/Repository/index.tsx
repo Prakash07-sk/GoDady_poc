@@ -5,6 +5,8 @@ import { IsRepoLoading } from "../../../Redux/Store/Repository/Repository.select
 import { GetRepoDetails } from "./Repository.util";
 import RepoDetails from "./RepoDetails/RepoDetails";
 import CardPlaceHolder from "../../Common/CardPlacholder";
+import { Col, Nav, Row } from "react-bootstrap";
+import SideBar from "../../Common/SideBar";
 
 
 export default function Repository() {

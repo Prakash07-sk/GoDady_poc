@@ -5,10 +5,8 @@ import NavBar from "../Pages/NavBar";
 export default function AppLayout() {
     return (
         <NavBar>
-            <Container className=" mt-5 mb-5">
-                <AppNavigation />
-                <ToastContainer />
-            </Container>
+            <AppNavigation />
+            <ToastContainer />
         </NavBar>
     );
 }
